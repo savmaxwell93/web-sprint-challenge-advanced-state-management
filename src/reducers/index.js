@@ -17,7 +17,7 @@ const reducer = (state = initialState, action)=>{
         case FETCH_SUCCESS:
             return {
                 ...state,
-                smurfs: [...smurfs, action.payload],
+                smurfs: [...state.smurfs, action.payload],
                 isLoading: false,
                 error: ''
             }
@@ -28,9 +28,13 @@ const reducer = (state = initialState, action)=>{
                 error: 'Error fetching smurfs'
             }
         case ADD_SMURF:
+            const newSmurf = {
+                ...action.payload,
+                id: Date.now()
+            }
             return {
                 ...state,
-                smurfs: [...smurfs, action.payload],
+                smurfs: [...state.smurfs, newSmurf],
                 isLoading: false,
                 error: '',
             }
