@@ -16,7 +16,7 @@ import Smurf from './Smurf';
     if (isLoading) {
         return <h1>Loading...</h1>;
     }
-    if (error !== '') {
+    if (error === 'Error fetching smurfs') {
         return <h1>{error}</h1>
     }
 
